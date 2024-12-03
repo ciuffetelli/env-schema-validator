@@ -1,5 +1,4 @@
 import validateEnv from 'env-schema-validator';
 
-validateEnv(() => {
-    console.log('SUCCESS');
-})
+await validateEnv();
+console.log('SUCCESS');

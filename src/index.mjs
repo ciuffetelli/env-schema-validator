@@ -1,14 +1,14 @@
 import { getConfig } from './utils/getConfig.mjs'
 
-async function exec(callback) {
+async function exec(configurations) {
     try {
-        const config = await getConfig();
+        const config = await getConfig(configurations);
 
         const schema = config.schema;
 
         await schema.validate(process.env);
 
-        return callback?.();
+        return true;
 
     } catch (error) {
         if (!error.errors) {
@@ -16,6 +16,8 @@ async function exec(callback) {
         }
 
         console.error('❌ Environment vars error:', error.errors);
+
+        return false;
     }
 }
 

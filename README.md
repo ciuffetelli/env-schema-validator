@@ -19,3 +19,27 @@ export const config = {
     typescript: true
 }
 ```
+
+## Usage
+
+```
+# next.config.ts
+
+import type { NextConfig } from "next";
+import validator from 'env-schema-validator';
+import { config } from './env-schema-validator.config.mjs';
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+const getNextConfig = async () => {
+  if(await validator(config)){
+    return nextConfig;
+  }
+  
+  return null;
+}
+
+export default getNextConfig();
+```
