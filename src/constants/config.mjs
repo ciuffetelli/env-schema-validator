@@ -1,3 +1,7 @@
+/**
+ * @type {import('env-schema-validator').ConfigOptions}
+ */
+
 export const config = {
     schema(yup) {
         return yup.object({
