@@ -4,7 +4,7 @@ import { resolve, join } from 'path';
 
 export const root = resolve(process.cwd(), 'node_modules').replace('/node_modules', '');
 
-export const rootModule = join(root, 'node_modules', 'validate-env');
+export const rootModule = join(root, 'node_modules', 'env-schema-validator');
 
 export const read = async (path) => {
     const ref = resolve(root, path);

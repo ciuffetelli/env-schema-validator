@@ -11,6 +11,6 @@ export const getConfig = async () => {
         };
 
     } catch (error) {
-        throw new Error('❌ Configuration file is missing please run "validate-env init"');
+        throw new Error('❌ Configuration file is missing please run "env-schema-validator init"');
     }
 };

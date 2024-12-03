@@ -1,5 +1,5 @@
 {
-  "name": "validate-env",
+  "name": "env-schema-validator",
   "version": "1.0.0",
   "description": "Validator of environment variables",
   "type": "module",
@@ -11,14 +11,14 @@
     "cli": "node ./src/cli.mjs"
   },
   "bin": {
-    "validate-env": "./src/cli.mjs"
+    "env-schema-validator": "src/cli.mjs"
   },
   "author": "Daniel Ciuffetelli <seufetelli@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/ciuffetelli/validate-env",
+  "homepage": "https://github.com/ciuffetelli/env-schema-validator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ciuffetelli/validate-env.git"
+    "url": "git+https://github.com/ciuffetelli/env-schema-validator.git"
   },
   "dependencies": {
     "yup": "^1.4.0"

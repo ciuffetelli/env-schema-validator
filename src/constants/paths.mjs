@@ -9,7 +9,7 @@ const scriptGenerate = join(src, 'scripts', 'generate.mjs');
 
 const configFile = join(src, 'constants', 'config.mjs');
 
-const applicationConfigFile = join(root, 'validate-env.config.mjs');
+const applicationConfigFile = join(root, 'env-schema-validator.config.mjs');
 
 const dotEnvExample = join(root, '.env.example');
 

@@ -1,4 +1,4 @@
-# validate-env
+# env-schema-validator
 
 Validation of environmental variables in a simple way.
 
@@ -8,7 +8,7 @@ Avoid unknown errors in your application by ensuring that all environment variab
 > The Module use Yup to create the validation schema
 
 ```
-#validate-env.config.mjs
+#env-schema-validator.config.mjs
 
 export const config = {
     schema(yup) {

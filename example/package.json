@@ -7,6 +7,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "validate-env": "../"
+    "env-schema-validator": "../"
   }
 }
