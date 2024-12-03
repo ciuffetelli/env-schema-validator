@@ -1,0 +1,26 @@
+{
+  "name": "validate-env",
+  "version": "1.0.0",
+  "description": "Validator of environment variables",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "scripts": {
+    "dev": "node --watch ./src/dev.mjs",
+    "init": "node ./src/scripts/init.mjs",
+    "generate": "node ./src/scripts/generate.mjs",
+    "cli": "node ./src/cli.mjs"
+  },
+  "bin": {
+    "validate-env": "./src/cli.mjs"
+  },
+  "author": "Daniel Ciuffetelli <seufetelli@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ciuffetelli/validate-env",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ciuffetelli/validate-env.git"
+  },
+  "dependencies": {
+    "yup": "^1.4.0"
+  }
+}

@@ -1,0 +1,7 @@
+.history
+node_modules
+
+# Example
+validate-env.config.mjs
+env.d.ts
+.env.example
