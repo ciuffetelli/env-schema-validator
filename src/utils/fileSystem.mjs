@@ -2,7 +2,8 @@ import { writeFile } from 'fs/promises';
 import { readFileSync } from 'fs';
 import { resolve, join } from 'path';
 
-export const root = resolve(process.cwd(), 'node_modules').replace('/node_modules', '');
+export const root = resolve(process.cwd(), 'node_modules')
+    .replace(join('/', 'node_modules'), '');
 
 export const rootModule = join(root, 'node_modules', 'env-schema-validator');
 
