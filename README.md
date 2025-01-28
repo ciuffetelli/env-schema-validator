@@ -43,3 +43,11 @@ const getNextConfig = async () => {
 
 export default getNextConfig();
 ```
+
+### Generating
+
+```
+npx env-schema-validator generate
+```
+
+This command will generate the .env.example file and the env.d.ts typescript file.
