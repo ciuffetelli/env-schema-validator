@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.mjs",
   "scripts": {
+    "predev": "yarn clean",
     "dev": "node ./index.mjs",
-    "init": "env-schema-validator init",
-    "generate": "env-schema-validator generate"
+    "pregenerate": "yarn clean",
+    "generate": "env-schema-validator generate",
+    "clean": "rm -rf ./node_modules && yarn"
   },
   "license": "ISC",
   "dependencies": {

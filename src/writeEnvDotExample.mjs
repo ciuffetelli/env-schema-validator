@@ -26,36 +26,13 @@ export async function writeEnvDotExample() {
 		}
 
 		let defaultValue = '';
-		let type = '';
+		let type = getSchemaType(value);
 
 		// Determine appropriate example values and add comments based on schema type
-		if (value instanceof StringSchema) {
-			const describes = value.describe();
-
-			if (describes.tests.some(test => test.name === 'url') || key.includes('URL')) {
-				defaultValue = 'https://example.com';
-			} else if (key.includes('PASSWORD') || key.includes('SECRET') || key.includes('KEY')) {
-				defaultValue = '<your-secret-here>';
-			} else if (key.includes('HOST')) {
-				defaultValue = 'localhost';
-			} else if (key.includes('EMAIL')) {
-				defaultValue = 'user@example.com';
-			} else if (key.includes('PATH')) {
-				defaultValue = '/path/to/resource';
-			} else {
-				defaultValue = 'value';
-			}
-
-			type = 'string';
-		} else if (value instanceof NumberSchema) {
-			defaultValue = '0';
-			type = 'number';
-		} else if (value instanceof BooleanSchema) {
-			defaultValue = 'false';
-			type = 'boolean';
+		if (value.spec.default) {
+			defaultValue = value.spec.default;
 		} else {
-			defaultValue = 'value';
-			type = 'unknown type';
+			defaultValue = getSchemaExampleValue(key, value);
 		}
 
 		// Get any meta description from the schema if available
@@ -103,4 +80,42 @@ export async function writeEnvDotExample() {
 		console.error('❌ Failed to generate .env.example file:', error);
 		process.exit(1);
 	}
+}
+
+function getSchemaType(schema) {
+	if (schema instanceof StringSchema) {
+		return 'string';
+	} else if (schema instanceof NumberSchema) {
+		return 'number';
+	} else if (schema instanceof BooleanSchema) {
+		return 'boolean';
+	} else {
+		return 'unknown';
+	}
+}
+
+function getSchemaExampleValue(key, schema) {
+
+	if (schema instanceof StringSchema) {
+
+		const describes = schema.describe();
+
+		if (describes.tests.some(test => test.name === 'url') || key.includes('URL')) {
+			return 'https://example.com';
+		} else if (key.includes('PASSWORD') || key.includes('SECRET') || key.includes('KEY')) {
+			return '<your-secret-here>';
+		} else if (key.includes('HOST')) {
+			return 'localhost';
+		} else if (key.includes('EMAIL')) {
+			return 'user@example.com';
+		} else if (key.includes('PATH')) {
+			return '/path/to/resource';
+		}
+	} else if (schema instanceof NumberSchema) {
+		return 0;
+	} else if (schema instanceof BooleanSchema) {
+		return false;
+	}
+
+	return 'value';
 }
